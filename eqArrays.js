@@ -1,17 +1,7 @@
-// emoji variable to output with assertion
-let emoji = require('node-emoji');
+const assertEqual = require('./assertEqual');
 
 
-const assertEqual = function(actual, expected) {
-  // check if 2 passsed arguments are equal
-  if (actual === expected) {
-    console.log(emoji.get('heart'), ` Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(emoji.get('warning'), ` Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
-
-
+// FUNCTION TO TEST ARRAY BY COMPARING EACH ELEMENT to ASSERT EQUALITY
 const eqArrays = function(arr1, arr2) {
   if (arr1.length !== arr2.length) return false;
   for (let i = 0; i < arr1.length; i++) {
@@ -20,8 +10,6 @@ const eqArrays = function(arr1, arr2) {
   return true;
 };
 
-// test function
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => should PASS
-assertEqual(eqArrays([1, 2, 3], [3, 2, 1]), true);// => should FAIL
-assertEqual(eqArrays(["1", "2", "3"], ["1", "2", "3"]), true);// => should PASS
-assertEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]), true);// => should FAIL
+
+module.exports = eqArrays;
+
