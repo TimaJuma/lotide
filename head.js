@@ -1,15 +1,6 @@
-// emoji variable to output with assertion
-let emoji = require('node-emoji');
+// import helpers function to assert for equality
+let assertEqual = require('./assertEqual');
 
-
-const assertEqual = function(actual, expected) {
-  // check if 2 passsed arguments are equal
-  if (actual === expected) {
-    console.log(emoji.get('heart'), ` Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(emoji.get('warning'), ` Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
 
 const head = function(item) {
   let length = item.length;
@@ -21,7 +12,7 @@ const head = function(item) {
   
 };
 
-// test function
+// test function with AsertEqual
 assertEqual(head([5,6,7]), 5);
 assertEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello");
 assertEqual(head([]), "string");
