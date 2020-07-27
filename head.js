@@ -12,7 +12,5 @@ const head = function(item) {
   
 };
 
-// test function with AsertEqual
-assertEqual(head([5,6,7]), 5);
-assertEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello");
-assertEqual(head([]), "string");
+module.exports = head;
+
