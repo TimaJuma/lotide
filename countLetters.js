@@ -1,18 +1,4 @@
-// emoji variable to output with assertion
-let emoji = require('node-emoji');
-
-
-const assertEqual = function(actual, expected) {
-  // check if 2 passsed arguments are equal
-  if (actual === expected) {
-    console.log(emoji.get('heart'), ` Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(emoji.get('warning'), ` Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
-
-
-
+const assertEqual = require('./assertEqual');
 
 
 // MAIN FUNCTION
@@ -28,14 +14,8 @@ const countLetters = function(str) {
   return letterObj;
 };
 
+module.exports = countLetters;
 
 
-console.log(countLetters('abc cba d'));
 
 
-//TESTNG
-const myString = 'abc cba d';
-const resultObject = {a:2, b:2, c:2, d:1};
-
-// test will fail, since assert equal compares primitives
-assertEqual(countLetters(myString), resultObject);

@@ -3,9 +3,6 @@ const tail = require('../tail');
 const assert = require('chai').assert;
 
 
-// test function
-
-// assertEqual([], 3);
 
 
 describe('#tail', ()=> {

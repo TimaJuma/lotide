@@ -1,5 +1,3 @@
-
-
 // check if 2 passsed arguments are equal
 const assertEqual = function(actual, expected) {
   if (actual === expected) {

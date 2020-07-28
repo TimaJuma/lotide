@@ -1,16 +1,5 @@
-// emoji variable to output with assertion
-let emoji = require('node-emoji');
-
-
-
-//  COMPARE THE ARRAYS
-const eqArrays = function(arr1, arr2) {
-  if (arr1.length !== arr2.length) return false;
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] !== arr2[i]) return false;
-  };
-  return true;
-};
+// helpers function
+const eqArrays = require('./eqArrays');
 
 
 // compare objects
@@ -35,16 +24,11 @@ const assertObjectsEqual = function(actual, expected) {
   // check if 2 passsed arguments are equal
   const inspect = require('util').inspect;
   if (eqObjects(actual, expected)) {
-    console.log(emoji.get('heart'), ` Assertion Passed: ${inspect(actual)} === ${inspect(expected)}`);
+    console.log(`✅ Assertion Passed: ${inspect(actual)} === ${inspect(expected)}`);
   } else {
-    console.log(emoji.get('warning'), ` Assertion Failed: ${inspect(actual)} !==  ${inspect(expected)}`);
+    console.log(`🔴 Assertion Failed: ${inspect(actual)} !==  ${inspect(expected)}`);
   }
 };
 
+module.exports = {eqObjects, assertObjectsEqual}
 
-// TEST FUNCTION
-
-const cd = { c: "1", d: ["2", 3] };
-const dc = { d: ["2", 3], c: "1" };
-
-assertObjectsEqual(cd, dc);
